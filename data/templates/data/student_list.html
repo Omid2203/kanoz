@@ -1,0 +1,44 @@
+<!doctype html>
+
+{% extends "data/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+
+<head>
+  <link rel="stylesheet" href="{% static 'css-persian-master/css/datatable.css' %}">
+</head>
+
+<body dir="ltr">
+  <h2 id="welcomemessage">خوش آمدید</h2>
+  <table class="table" dir="rtl">
+      <thead>
+        <tr>
+            <th scope="col">نام</th>
+            <th scope="col">نام خانوادگی</th>
+            <th scope="col">ایمیل</th>
+            <th scope="col">دانشگاه</th>
+            <th scope="col">تلفن همراه</th>
+            <th scope="col">بخش</th>
+            <th scope="col">زیرشاخه</th>
+        </tr>
+      </thead>
+      <tbody>
+            {% for stu in student %}
+            <tr>
+              <td>{{ student.name }}</td>
+              <td>{{ stu.family_name }}</td>
+              <td>{{ stu.email }}</td>
+              <td>{{ stu.university }}</td>
+              <td>{{ stu.cellphone }}</td>
+              <td>{{ stu.part.name }}</td>
+              <td>{{ stu.branch.name }}</td>
+            </tr>
+          {% empty %}
+            <tr>
+              <td colspan="4">  هیچ داوطلبی تاکنون ثبت نام نکرده است<br><a href="{% url 'student_add' %}">    شما اولین داوطلب باشید!</a></td>
+            </tr>
+          {% endfor %}
+      </tbody>
+    </table>
+</body>
+{% endblock %}

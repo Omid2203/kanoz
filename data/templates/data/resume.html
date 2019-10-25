@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+
+{% extends "data/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<head>
+    <style>
+        #sub{
+            width: 250px;
+            background-color: #4CAF50; /* Green */
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 20px;
+            border-radius: 6px;
+            transition: all 0.3s ease 0s;
+        }
+
+        #sub:hover {
+            color: #494949 ;
+            border-radius: 50px;
+            border-color: #494949;
+            transition: all 0.3s ease 0s;
+        }
+
+        #fileupload{
+            text-align: center;
+        }
+
+        input[type=file]{
+            margin: 0 auto;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>:در این صفحه فایل رزومه خود را آپلود کنید</h1>
+    <br>
+    <!--    File uploading    -->
+        <form method="POST" id="StudentForm" action="{% url 'resume' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+              <div class="custom-file">
+                  <div class="col-xs-10" id="fileupload">
+                    <label class="custom-file-label" >فایل موردنظر را انتخاب کنید</label>
+                    <input type="file"   class="custom-file-input" name="document" >
+                  </div>
+             </div>
+            <br><br><br>
+
+            <button type="submit" id="sub">ثبت فایل رزومه</button>
+
+        </form>
+</body>
+
+{% endblock %}

@@ -1,0 +1,73 @@
+
+#t1{
+    text-align: right;
+    float: right;
+    color: black;
+}
+#t2{
+    text-align: right;
+    float: right;
+    color: black;
+}
+#t3{
+    text-align: right;
+    float: right;
+    color: black;
+}
+
+#t4{
+    text-align: right;
+    float: right;
+    color: black;
+}
+#t5{
+    text-align: right;
+    float: right;
+    color: black;
+}
+
+
+::placeholder{
+    text-align: right;
+    /*float: right;*/
+}
+
+#dropdown1{
+    text-align: right;
+    float: right;
+    color: black;
+}
+
+#dropdown2{
+    text-align: right;
+    float: right;
+    color: black;
+}
+
+#fileupload{
+    text-align: right;
+    float: right;
+    color: black;
+
+}
+
+#submitbut{
+    width: 250px;
+    background-color: #4CAF50; /* Green */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px;
+    border-radius: 6px;
+    transition: all 0.3s ease 0s;
+}
+
+#submitbut:hover {
+    color: #494949 ;
+    border-radius: 50px;
+    border-color: #494949;
+    transition: all 0.3s ease 0s;
+}

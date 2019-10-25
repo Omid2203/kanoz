@@ -1,0 +1,59 @@
+{% load staticfiles %}
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>Document</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="{% static 'css-persian-master/css/fonts.css' %}">
+        <!-- or use fonts.min.css -->
+        <link rel="stylesheet" href="{% static 'css-persian-master/css/fonts.min.css' %}">
+        <link rel="stylesheet" href="{% static 'css-persian-master/css/base.css' %}">
+
+        <style>
+            .footer {
+                position: fixed;
+                height: 55px;
+                bottom: 0;
+                color: #00003E;
+                padding-top:20px;
+                width: 100%;
+                background: aliceblue;
+                text-align:center;
+            }
+        </style>
+    </head>
+    <body>
+        <nav class="navbar navbar-default" id="nav0">
+          <div class="container">
+            <div class="navbar-header">
+              <a class="navbar-brand" href="{% url 'index' %}">سایت ثبت مشخصات</a>
+            </div>
+            <ul class="nav navbar-nav" id="nav1">
+              <li><a href="{% url 'resume1' %}">داده های موجود</a></li>
+              <li><a href="{% url 'admin:index' %}">صفحه مدیریت</a></li>
+              <li><a href="{% url 'student_add' %}">ثبت نام</a></li>
+            </ul>
+          </div>
+        </nav>
+
+        <div class="container">
+            <div class="jumbotron">
+            {% block body_block %}
+                <div id="jumbo1">
+                    <h1>به بخش ثبت نام خوش آمدید</h1>
+                    <h3>از طریق نوار بالای صفحه بخش موردنیاز خود را انتخاب کنید</h3>
+                </div>
+            {% endblock %}
+            </div>
+        </div>
+
+        <footer class="footer">
+              <div class="container">
+                <p>Omid/Feri | تمامی حقوق این سایت محفوظ است</p>
+              </div>
+        </footer>
+    </body>
+</html>
+
+

@@ -1,0 +1,28 @@
+body{
+    font-family: "BRoya";
+}
+
+#stform-body{
+    text-align: right;
+    #float: right;
+}
+
+.navbar-header{
+    text-align: right;
+    float:right ;
+}
+
+#nav1{
+    text-align: right;
+    float:right ;
+}
+
+li.active{
+    text-align: right;
+    float:right ;
+}
+
+h1,h3,h5{
+    text-align: center;
+}
+

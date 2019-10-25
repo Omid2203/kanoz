@@ -1,0 +1,14 @@
+#welcomemessage{
+    text-align: right;
+    float: right;
+    color: black;
+}
+
+table{
+    text-align: right;
+    direction: ltr;
+}
+
+th{
+    text-align: right;
+}

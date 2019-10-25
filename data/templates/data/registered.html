@@ -1,0 +1,22 @@
+<!doctype html>
+{% extends "data/base.html" %}
+{% load staticfiles %}
+
+
+{% block body_block %}
+<head>
+  <link rel="stylesheet" href="{% static 'css-persian-master/css/registered.css' %}">
+</head>
+
+<body id="bodyl">
+    <div>
+        <img src="{% static 'checked.png' %}" class="icon" alt="">
+        <h1>با موفقیت اطلاعات شما ثبت شد</h1>
+        <h3> بسیار سپاسگزاریم</h3>
+
+
+
+    </div>
+
+
+    {% endblock %}

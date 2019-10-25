@@ -1,0 +1,100 @@
+<!doctype html>
+{% extends "data/base.html" %}
+{% load staticfiles %}
+{% block body_block %}
+<head>
+  <link rel="stylesheet" href="{% static 'css-persian-master/css/man.css' %}">
+</head>
+
+<div class="container">
+  <body id="stform-body">
+    <h2>فرم ثبت مشخصات</h2>
+
+  <form method="post" id="StudentForm" data-branches-url="{% url 'ajax_load_branches' %}" novalidate >
+    {% csrf_token %}
+
+<!--      Name getter-->
+      <div class="form-group">
+        <div class="col-xs-4" id="t1">
+        <label for="nameinput"> نام</label>
+        <input type="text"  class="form-control "  id="nameinput" name="name" placeholder="نام خود را وارد کنید"  >
+        <small id="nameinput" class="form-text text-muted float-right">مشخصات شما با هیچ نهاد دیگری در میان گذاشته نخواهد شد.</small>
+        </div>
+      </div>
+
+<!--      Famiy_name getter-->
+      <div class="form-group">
+        <div class="col-xs-4" id="t2">
+        <label for="family_name_input">نام خانوادگی</label>
+        <input type="text"  class="form-control "  id="family_name_input" name="family_name" placeholder="نام خانوادگی"  >
+        </div>
+      </div>
+
+<!--      Cellphone getter-->
+      <div class="form-group">
+        <div class="col-xs-4" id="t3">
+        <label for="cellphoneinput"> شماره تماس</label>
+        <input type="text"  class="form-control "  id="cellphoneinput" name="cellphone" placeholder="شماره همراه" value="+98" >
+          <small id="cellphoneinput" class="form-text text-muted float-right">شماره تماس را با پیشفرض 98+ وارد کنید</small>
+        </div>
+      </div>
+      <br><br>
+
+<!--      Email getter-->
+      <div class="form-group">
+        <div class="col-xs-6" id="t4">
+        <label for="emailinput">ایمیل</label>
+        <input type="text"  class="form-control "  id="emailinput" name="email" placeholder="ایمیل خود را وارد کنید"  >
+        </div>
+      </div>
+
+<!--      University -->
+      <div class="form-group">
+        <div class="col-xs-6" id="t5">
+        <label for="univerinput">دانشگاه محل تحصیل</label>
+        <input type="text"  class="form-control"  id="univerinput" name="university"  >
+        </div>
+      </div>
+
+<!--        Dropdowns    -->
+      <div class="dropdown">
+        <div class="col-xs-6" id="dropdown1">
+        <label>بخش فعالیت اصلی</label>
+        <div class="dropdown" id="dp1">
+          {{form.part}}<br>
+          </div>
+        </div>
+
+        <div class="col-xs-6" id="dropdown2">
+        <label>زیر شاخه موردنظر</label>
+          <br>{{form.branch}}
+        </div>
+      </div><br>
+
+    <div class="col-xs-3" >
+      <input type="submit" id="submitbut" value="ثبت مشخصات">
+    </div>
+  </form>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script>
+      $("#id_part").change(function () {
+        var url = $("#StudentForm").attr("data-branches-url");
+        var partId = $(this).val();
+
+        $.ajax({
+          url: url,
+          data: {
+            'part': partId
+          },
+          success: function (data) {
+            $("#id_branch").html(data);
+          }
+        });
+
+      });
+    </script>
+  </body>
+</div>
+
+{% endblock %}
